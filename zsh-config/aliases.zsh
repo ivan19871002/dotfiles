@@ -11,6 +11,5 @@ alias adblkmsg='adb shell cat /proc/last_kmsg'
 
 alias cls='clear'
 
-
 # kill all tmux session
 alias alias kts='tmux ls | awk '\''{print $1}'\'' | sed '\''s/://g'\'' | xargs -I{} tmux kill-session -t {}'
