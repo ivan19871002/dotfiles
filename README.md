@@ -2,12 +2,14 @@
 
     sudo apt-get install -y language-pack-en-base
     sudo apt-get install -y language-pack-zh-hans
-    sudo apt-get install -y git
+    sudo apt-get install -y geany
     sudo apt-get install -y vim
     sudo apt-get install -y exuberant-ctags
     sudo apt-get install -y terminator
 
     sudo apt-get install openjdk-7-jdk
+
+For android
     sudo apt-get install bison g++-multilib git gperf libxml2-utils make python-networkx zlib1g-dev:i386 zip
 
 ## vim
@@ -85,3 +87,13 @@
     sudo apt-get install -y android-tools-fastboot
     sudo apt-get install -y android-tools-adb
     
+## soft
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    sudo dpkg -i google-chrome-stable_current_amd64.deb
+
+    or
+
+    wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add
+    sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+    sudo apt-get update
+    sudo apt-get install google-chrome
