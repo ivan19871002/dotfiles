@@ -60,7 +60,8 @@
 
 打开~/.zshrc
 	修改插件
-	plugins=(git autojump)
+	plugins=(git autojump tmux tmuxinator gem terminator rake ruby)
+	添加
 	source ~/.dotfiles/zsh-config/aliases.zsh
 	修改主题
 	ln -s ~/.dotfiles/zsh/raj.zsh-theme ~/.dotfiles/zsh/themes/raj.zsh-theme
@@ -72,6 +73,9 @@
     curl -L https://get.rvm.io | bash -s stable --autolibs=enabled --ruby=2.2.2
     gem sources -a https://ruby.taobao.org/
     gem sources --remove https://rubygems.org/
+
+## tmuxinator
+    gem install tmuxinator
 
 ## github pages
     gem install jekyll
