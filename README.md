@@ -32,8 +32,7 @@
 	chsh -s /bin/zsh
 
 ## VIM
-	git clone git://github.com/ivan19871002/vimrc.git ~/.vim_runtime
-	sh ~/.vim_runtime/install_awesome_vimrc.sh
+	sh ~/.dotfiles/vimrc/install_awesome_vimrc.sh
 
 ## rvm, ruby 2.2.2, jekyll
     gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
