@@ -8,8 +8,6 @@
     sudo apt-get install -y terminator
 
     sudo apt-get install openjdk-7-jdk
-
-For android
     sudo apt-get install bison g++-multilib git gperf libxml2-utils make python-networkx zlib1g-dev:i386 zip
 
 ## vim
