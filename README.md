@@ -39,13 +39,13 @@
     wget http://cznic.dl.sourceforge.net/project/levent/libevent/libevent-2.0/libevent-2.0.22-stable.tar.gz
     tar vxzf libevent-2.0.22-stable.tar.gz -C ./
     cd libevent-2.0.22-stable
-    ./configure –prefix=/usr && make
+    ./configure --prefix=/usr && make
     sudo make install
 
     git clone git@github.com:tmux/tmux.git
     cd tmux
     sh autogen.sh
-    ./configure –prefix=/usr && make
+    ./configure --prefix=/usr && make
     sudo make install
     ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 
