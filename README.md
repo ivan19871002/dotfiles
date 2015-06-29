@@ -36,6 +36,15 @@
 选中“显示选择右键菜单中的项目”和“Display item in location context menu”。
 命令路径中填“/usr/bin/terminator”，参数放空，工作目录填“%d/%b”。
 
+## rvm, ruby 2.2.2
+    gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+    curl -L https://get.rvm.io | bash -s stable --autolibs=enabled --ruby=2.2.2
+    gem sources -a https://ruby.taobao.org/
+    gem sources --remove https://rubygems.org/
+
+## tmuxinator
+    gem install tmuxinator
+
 ## tmux
     wget http://cznic.dl.sourceforge.net/project/levent/libevent/libevent-2.0/libevent-2.0.22-stable.tar.gz
     tar vxzf libevent-2.0.22-stable.tar.gz -C ./
@@ -67,15 +76,6 @@
     ln -s ~/.dotfiles/zsh-config/raj.zsh-theme ~/.dotfiles/zsh/themes/raj.zsh-theme
     ZSH_THEME="raj"
     export EDITOR='vim'
-
-## rvm, ruby 2.2.2, jekyll
-    gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-    curl -L https://get.rvm.io | bash -s stable --autolibs=enabled --ruby=2.2.2
-    gem sources -a https://ruby.taobao.org/
-    gem sources --remove https://rubygems.org/
-
-## tmuxinator
-    gem install tmuxinator
 
 ## github pages
     gem install jekyll
