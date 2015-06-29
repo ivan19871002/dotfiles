@@ -10,9 +10,6 @@
     sudo apt-get install openjdk-7-jdk
     sudo apt-get install bison g++-multilib git gperf libxml2-utils make python-networkx zlib1g-dev:i386 zip
 
-## vim
-	sh ~/.dotfiles/vimrc/install_awesome_vimrc.sh
-
 ## git
     git config --global alias.logc "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%an, %cd)%Creset' --abbrev-commit --date=short"
     git config --global color.ui auto
@@ -24,6 +21,10 @@
     git config --global alias.ck checkout
 
     git clone git@github.com:ivan19871002/dotfiles.git ~/.dotfiles
+
+## vim
+    git clone git@github.com:ivan19871002/vimrc.git ~/.vim_runtime
+    sh ~/.vim_runtime/install_awesome_vimrc.sh
 
 ## terminator
 	gsettings set org.gnome.desktop.default-applications.terminal exec   /usr/bin/terminator
@@ -50,23 +51,22 @@
     ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 
 ## zsh
-	sudo apt-get install -y zsh
-	ZSH=~/.dotfiles/zsh
-	sh ~/.dotfiles/zsh/tools/install.sh
-	chsh -s /bin/zsh
-	git clone git://github.com/joelthelion/autojump.git
-	cd autojump
-	./install.py
+    sudo apt-get install -y zsh
+    curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | ZSH=~/.dotfiles/zsh sh
+    chsh -s /bin/zsh
+    git clone git://github.com/joelthelion/autojump.git
+    cd autojump
+    ./install.py
 
-打开~/.zshrc
-	修改插件
-	plugins=(git autojump tmux tmuxinator gem terminator rake ruby)
-	添加
-	source ~/.dotfiles/zsh-config/aliases.zsh
-	修改主题
-	ln -s ~/.dotfiles/zsh/raj.zsh-theme ~/.dotfiles/zsh/themes/raj.zsh-theme
-	ZSH_THEME="raj"
-	export EDITOR='vim'
+    打开~/.zshrc
+    修改插件
+    plugins=(git autojump tmux tmuxinator gem terminator rake ruby)
+    添加
+    source ~/.dotfiles/zsh-config/aliases.zsh
+    修改主题
+    ln -s ~/.dotfiles/zsh/raj.zsh-theme ~/.dotfiles/zsh/themes/raj.zsh-theme
+    ZSH_THEME="raj"
+    export EDITOR='vim'
 
 ## rvm, ruby 2.2.2, jekyll
     gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
