@@ -64,7 +64,7 @@
     添加
     source ~/.dotfiles/zsh-config/aliases.zsh
     修改主题
-    ln -s ~/.dotfiles/zsh/raj.zsh-theme ~/.dotfiles/zsh/themes/raj.zsh-theme
+    ln -s ~/.dotfiles/zsh-config/raj.zsh-theme ~/.dotfiles/zsh/themes/raj.zsh-theme
     ZSH_THEME="raj"
     export EDITOR='vim'
 
