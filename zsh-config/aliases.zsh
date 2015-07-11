@@ -4,11 +4,9 @@ source $HOME/.dotfiles/tmux/tmuxinator.zsh
 
 alias vi='vim'
 
-alias adblog='adb logcat -v threadtime'
-alias adblogc='adb logcat -C -v threadtime'
-alias adbbug='adb bugreport'
-alias adbkmsg='adb shell cat /proc/kmsg'
-alias adblkmsg='adb shell cat /proc/last_kmsg'
+alias logcat='python ~/.dotfiles/colored-adb-logcat.py'
+alias kmsg='adb shell cat /proc/kmsg'
+alias lastkmsg='adb shell cat /proc/last_kmsg'
 
 alias cls='clear'
 
