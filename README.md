@@ -1,5 +1,5 @@
 # Ivan 
-
+####Linux:
     sudo apt-get install -y language-pack-en-base
     sudo apt-get install -y language-pack-zh-hans
     sudo apt-get install -y geany
@@ -9,6 +9,17 @@
 
     sudo apt-get install openjdk-7-jdk
     sudo apt-get install bison g++-multilib git gperf libxml2-utils make python-networkx zlib1g-dev:i386 zip
+
+####Mac:
+    curl -LsSf http://github.com/mxcl/homebrew/tarball/master | sudo tar xvz -C/usr/local --strip 1
+    brew doctor
+    brew install git
+    brew install tmux
+    brew install autojump
+    brew tap phinze/cask
+    brew install brew-cask
+    brew cask install iterm2
+    brew cask install google-chrome
 
 ## git
     git config --global alias.logc "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%an, %cd)%Creset' --abbrev-commit --date=short"
@@ -46,6 +57,7 @@
     gem install tmuxinator
 
 ## tmux
+####Linux:
     wget http://cznic.dl.sourceforge.net/project/levent/libevent/libevent-2.0/libevent-2.0.22-stable.tar.gz
     tar vxzf libevent-2.0.22-stable.tar.gz -C ./
     cd libevent-2.0.22-stable
@@ -58,6 +70,9 @@
     ./configure --prefix=/usr && make
     sudo make install
     ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
+
+####Mac:
+    brew install tmux
 
 ## zsh
     sudo apt-get install -y zsh

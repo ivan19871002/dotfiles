@@ -1,6 +1,19 @@
-[[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
-[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+if [[ `uname` == 'Darwin' ]]; then
+    [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+    export CLICOLOR=1
+    export LSCOLORS=gxfxaxdxcxegedabagacad
+    export PATH="$(brew --prefix sqlite)/bin:$PATH"
+
+    alias grep='grep --color=auto'
+else
+    [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
+    [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+    export PATH=$PATH:/opt/bin
+fi
 source $HOME/.dotfiles/tmux/tmuxinator.zsh
+
+export PATH="$PATH:$HOME/bin"
 
 alias vi='vim'
 
@@ -9,6 +22,8 @@ alias kmsg='adb shell cat /proc/kmsg'
 alias lastkmsg='adb shell cat /proc/last_kmsg'
 
 alias cls='clear'
+alias ll='ls -l'
+alias la='ls -la'
 
 export EDITOR='vim'
 # kill all tmux session
