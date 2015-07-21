@@ -20,7 +20,11 @@
     brew tap phinze/cask
     brew install brew-cask
     brew cask install iterm2
+    iterm2 settings--> General Command: /usr/local/bin/tmux -u
     brew cask install google-chrome
+    brew tap homebrew/dupes
+    brew install homebrew/dupes/grep
+
 
 ## git
     git config --global alias.logc "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%an, %cd)%Creset' --abbrev-commit --date=short"
@@ -70,10 +74,9 @@
     sh autogen.sh
     ./configure --prefix=/usr && make
     sudo make install
-    ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 
-####Mac:
-    brew install tmux
+####Mac and Linux
+    ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 
 ## zsh
     sudo apt-get install -y zsh
