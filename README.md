@@ -16,6 +16,7 @@
     brew install git
     brew install tmux
     brew install autojump
+    brew install ruby
     brew tap phinze/cask
     brew install brew-cask
     brew cask install iterm2
