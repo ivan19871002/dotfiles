@@ -20,7 +20,7 @@
     icon_bell = False
     show_titlebar = False
     custom_command = TERM=screen-256color-bce tmux -u
-    font = 文泉驿等宽微米黑 12
+    font = Meslo LG S for Powerline 12
     background_color = "#002b36"
     scrollback_infinite = True
   [[solarized-dark]]
