@@ -9,11 +9,12 @@ if [[ `uname` == 'Darwin' ]]; then
 else
     [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
     [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
-    export PATH=$PATH:/opt/bin
 fi
+
 source $HOME/.dotfiles/tmux/tmuxinator.zsh
 
 export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:/opt/bin"
 
 alias vi='vim'
 
