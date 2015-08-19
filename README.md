@@ -96,6 +96,12 @@
     ZSH_THEME="raj"
     export EDITOR='vim'
 
+## Fonts
+    git clone git@github.com:powerline/fonts.git
+    cd fonts
+    ./install.sh
+    终端选项中字体都选择Meslo LG S for Powerline
+
 ## github pages
     gem install jekyll
     sudo apt-get install -y nodejs
