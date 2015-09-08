@@ -6,30 +6,29 @@
 [keybindings]
 [profiles]
   [[default]]
-    scrollbar_position = hidden
-    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    palette = "#000000:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
     login_shell = True
     background_image = None
     background_darkness = 0.0
     cursor_shape = ibeam
     use_system_font = False
     cursor_color = "#eee8d5"
-    foreground_color = "#eee8d5"
+    foreground_color = "#ffffff"
     use_custom_command = True
     scroll_on_output = False
     icon_bell = False
     show_titlebar = False
     custom_command = TERM=screen-256color-bce tmux -u
     font = Meslo LG S for Powerline 12
-    background_color = "#002b36"
+    background_color = "#300a24"
     scrollback_infinite = True
   [[solarized-dark]]
     palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
     custom_command = TERM=screen-256color-bce tmux -u
     background_image = None
     cursor_color = "#002b36"
-    foreground_color = "#2fa615"
-    background_color = "#eee8d5"
+    foreground_color = "#000000"
+    background_color = "#ffffff"
   [[new]]
     background_image = None
   [[solarized-light]]
@@ -39,6 +38,7 @@
     [[[child1]]]
       type = Terminal
       parent = window0
+      profile = default
     [[[window0]]]
       type = Window
       parent = ""
