@@ -11,7 +11,8 @@ else
     [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 fi
 
-source $HOME/.dotfiles/tmux/tmuxinator.zsh
+#source $HOME/.dotfiles/tmux/tmuxinator.zsh
+source $HOME/.dotfiles/zsh-config/fbi.sh
 
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:/opt/bin"
