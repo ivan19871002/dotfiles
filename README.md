@@ -113,6 +113,8 @@
     sudo apt-get install -y libswitch-perl
     sudo apt-get install -y android-tools-fastboot
     sudo apt-get install -y android-tools-adb
+### adb fastb , Mac OS X
+    brew install android-platform-tools
     
 ## soft
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
