@@ -9,7 +9,7 @@ if [[ `uname` == 'Darwin' ]]; then
 else
     [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
     [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
-    if [[ `uname -r | grep ARCH` ]]; then
+    if [ `uname -r | grep ARCH` ]; then
         source $HOME/.dotfiles/android_env/android_env.sh
         source $HOME/.dotfiles/android_env/init.sh
     fi
