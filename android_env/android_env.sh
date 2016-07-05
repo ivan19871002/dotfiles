@@ -92,7 +92,7 @@ function android_env {
   export JRE_HOME=${JAVA_HOME}/jre
   export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
   export PATH=$PATH:${JAVA_HOME}/bin:${JRE_HOME}/bin
-  export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8
+  #export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8
 
   # 本代码段在bash 中运行 {
   echo 'set python -> python2'

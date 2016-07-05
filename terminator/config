@@ -1,44 +1,45 @@
 [global_config]
   custom_url_handler = Terminator
   enabled_plugins = CustomCommandsMenu, LaunchpadBugURLHandler
-  title_transmit_bg_color = "#d30102"
   focus = system
+  title_transmit_bg_color = "#d30102"
 [keybindings]
-[profiles]
-  [[default]]
-    palette = "#000000:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
-    login_shell = True
-    background_image = None
-    background_darkness = 0.0
-    cursor_shape = ibeam
-    use_system_font = False
-    cursor_color = "#eee8d5"
-    foreground_color = "#ffffff"
-    scroll_on_output = False
-    icon_bell = False
-    show_titlebar = False
-    custom_command = TERM=screen-256color-bce tmux -u
-    font = Meslo LG S for Powerline 12
-    background_color = "#300a24"
-    scrollback_infinite = True
-  [[solarized-dark]]
-    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
-    custom_command = TERM=screen-256color-bce tmux -u
-    background_image = None
-    cursor_color = "#002b36"
-    foreground_color = "#000000"
-    background_color = "#ffffff"
-  [[solarized-light]]
-    background_image = None
-  [[new]]
-    background_image = None
 [layouts]
   [[default]]
     [[[child1]]]
-      type = Terminal
       parent = window0
       profile = default
+      type = Terminal
     [[[window0]]]
-      type = Window
       parent = ""
+      type = Window
 [plugins]
+[profiles]
+  [[default]]
+    background_color = "#300a24"
+    background_darkness = 0.0
+    background_image = None
+    cursor_color = "#eee8d5"
+    cursor_shape = ibeam
+    custom_command = TERM=screen-256color-bce tmux -u
+    font = Meslo LG S for Powerline 12
+    foreground_color = "#ffffff"
+    icon_bell = False
+    login_shell = True
+    palette = "#000000:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
+    scroll_on_output = False
+    scrollback_infinite = True
+    show_titlebar = False
+    use_custom_command = True
+    use_system_font = False
+  [[new]]
+    background_image = None
+  [[solarized-dark]]
+    background_color = "#ffffff"
+    background_image = None
+    cursor_color = "#002b36"
+    custom_command = TERM=screen-256color-bce tmux -u
+    foreground_color = "#000000"
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+  [[solarized-light]]
+    background_image = None
