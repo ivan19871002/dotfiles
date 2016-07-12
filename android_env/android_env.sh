@@ -119,6 +119,15 @@ function android_env {
   )
   # }
 
+  ccachetool="prebuilts/misc/linux-x86/ccache/ccache"
+
+  if [ -f "$ccachetool" ]; then
+    export USE_CCACHE=1
+    export CCACHE_DIR=/data/mnc/ccache
+    echo "Set cache dir $CCACHE_DIR"
+    prebuilts/misc/linux-x86/ccache/ccache -M 100G
+  fi
+
   return $?
 }
 
