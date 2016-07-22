@@ -126,3 +126,11 @@
     sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
     sudo apt-get update
     sudo apt-get install google-chrome
+
+## redsocks
+    mkdir /opt/proxy 
+    cd /opt/proxy 
+    git clone git@github.com:darkk/redsocks.git 
+    cd redsocks 
+    make
+    ln -s ~/.dotfiles/redsocks/redsocks.conf /opt/proxy/redsocks

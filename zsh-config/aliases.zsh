@@ -13,6 +13,8 @@ else
         source $HOME/.dotfiles/android_env/android_env.sh
         source $HOME/.dotfiles/android_env/init.sh
     fi
+
+
 fi
 
 #source $HOME/.dotfiles/tmux/tmuxinator.zsh
@@ -29,6 +31,9 @@ alias lastkmsg='adb shell cat /proc/last_kmsg'
 alias cls='clear'
 alias ll='ls -l'
 alias la='ls -la'
+
+alias redsocks_start='sudo ~/.dotfiles/redsocks/redsocks.sh start'
+alias redsocks_stop='sudo ~/.dotfiles/redsocks/redsocks.sh stop'
 
 export EDITOR='vim'
 # kill all tmux session
