@@ -63,7 +63,7 @@
 
 ## tmux
 ####Linux:
-    wget http://cznic.dl.sourceforge.net/project/levent/libevent/libevent-2.0/libevent-2.0.22-stable.tar.gz
+    wget https://github.com/libevent/libevent/releases/download/release-2.0.22-stable/libevent-2.0.22-stable.tar.gz
     tar vxzf libevent-2.0.22-stable.tar.gz -C ./
     cd libevent-2.0.22-stable
     ./configure --prefix=/usr && make
