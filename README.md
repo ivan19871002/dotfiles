@@ -10,6 +10,8 @@
 ## Ubuntu 16.04  Compaile Android ROM
     sudo apt-get install openjdk-8-jdk
     sudo apt-get install git ccache automake lzop bison gperf build-essential zip curl zlib1g-dev zlib1g-dev:i386 g++-multilib python-networkx libxml2-utils bzip2 libbz2-dev libbz2-1.0 libghc-bzlib-dev squashfs-tools pngcrush schedtool dpkg-dev liblz4-tool make optipng maven
+    curl https://storage.googleapis.com/git-repo-downloads/repo > /opt/bin/repo
+    add /opt/bin into PATH
 
 ####Mac:
     curl -LsSf http://github.com/mxcl/homebrew/tarball/master | sudo tar xvz -C/usr/local --strip 1
