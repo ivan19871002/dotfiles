@@ -135,3 +135,9 @@
     cd redsocks 
     make
     ln -s ~/.dotfiles/redsocks/redsocks.conf /opt/proxy/redsocks
+
+## ubuntu-mate-desktop
+    sudo apt-get install ubuntu-mate-desktop 
+    sudo apt-add-repository ppa:ubuntu-mate-dev/xenial-mate
+    sudo apt-get update
+    sudo apt-get dist-upgrade 
