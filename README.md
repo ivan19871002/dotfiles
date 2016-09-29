@@ -136,6 +136,12 @@
    sudo apt-get update
    sudo apt-get install shadowsocks-qt5
 
+   or
+
+   sudo apt-get install python-pip
+   pip install shadowsocks
+   sslocal -c /PATH/shadowsocks.json
+
 ## redsocks
     sudo apt-get install redsocks
 
