@@ -1,5 +1,5 @@
 # Ivan 
-####Linux:
+##Linux:
     sudo apt-get install -y language-pack-en-base
     sudo apt-get install -y language-pack-zh-hans
     sudo apt-get install -y geany
@@ -116,7 +116,8 @@
     sudo apt-get install -y libswitch-perl
     sudo apt-get install -y android-tools-fastboot
     sudo apt-get install -y android-tools-adb
-### adb fastb , Mac OS X
+
+## adb fastb , Mac OS X
     brew install android-platform-tools
     
 ## soft
@@ -125,8 +126,8 @@
 
     or
 
-    wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-    sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+    wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+    sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
     sudo apt-get update
     sudo apt-get install google-chrome-stable
 
