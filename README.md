@@ -143,3 +143,14 @@
     sudo apt-add-repository ppa:ubuntu-mate-dev/xenial-mate
     sudo apt-get update
     sudo apt-get dist-upgrade 
+
+## input method
+    wiki: https://fcitx-im.org/wiki/Fcitx/zh-hans
+
+    sudo add-apt-repository ppa:fcitx-team/nightly
+
+    or
+
+    sudo add-apt-repository ppa:fcitx-team/stable
+
+    sudo apt-get update
