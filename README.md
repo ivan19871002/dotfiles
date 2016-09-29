@@ -130,6 +130,11 @@
     sudo apt-get update
     sudo apt-get install google-chrome-stable
 
+## SS
+   sudo add-apt-repository ppa:hzwhuang/ss-qt5
+   sudo apt-get update
+   sudo apt-get install shadowsocks-qt5
+
 ## redsocks
     sudo apt-get install redsocks
 
