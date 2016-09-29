@@ -131,12 +131,7 @@
     sudo apt-get install google-chrome-stable
 
 ## redsocks
-    mkdir /opt/proxy 
-    cd /opt/proxy 
-    git clone git@github.com:darkk/redsocks.git 
-    cd redsocks 
-    make
-    ln -s ~/.dotfiles/redsocks/redsocks.conf /opt/proxy/redsocks
+    sudo apt-get install redsocks
 
 ## ubuntu-mate-desktop
     sudo apt-get install ubuntu-mate-desktop 
