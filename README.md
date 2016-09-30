@@ -116,6 +116,7 @@
     sudo apt-get install -y libswitch-perl
     sudo apt-get install -y android-tools-fastboot
     sudo apt-get install -y android-tools-adb
+    sudo apt-get install -y pwgen
 
 ## adb fastb , Mac OS X
     brew install android-platform-tools
