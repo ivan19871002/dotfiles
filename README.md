@@ -1,7 +1,7 @@
 # Ivan 
 
 ## Fix wifi (ubuntu 16.04, xiaomi laptop)
-    sudo cp $HOME/.dotfiles/xm-laptop/xiaomi.conf /etc/modprobe.d/
+    sudo sh -c 'echo "blacklist acer_wmi" >> /etc/modprobe.d/xiaomi.conf'
 
 ##Linux:
     sudo apt-get install -y language-pack-en-base
