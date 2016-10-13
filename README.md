@@ -1,4 +1,8 @@
 # Ivan 
+
+## Fix wifi (ubuntu 16.04, xiaomi laptop)
+  sudo cp $HOME/.dotfiles/xm-laptop/xiaomi.conf /etc/modprobe.d/
+
 ##Linux:
     sudo apt-get install -y language-pack-en-base
     sudo apt-get install -y language-pack-zh-hans
@@ -176,9 +180,6 @@
     sudo add-apt-repository ppa:fcitx-team/stable
 
     sudo apt-get update
-
-## For Xiaomi Laptop 13'
-    sudo cp $HOME/.dotfiles/xm-laptop/xiaomi.conf /etc/modprobe.d/
 
 ## For sogou input
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8D5A09DC9B929006
