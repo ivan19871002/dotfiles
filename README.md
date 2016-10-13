@@ -1,7 +1,7 @@
 # Ivan 
 
 ## Fix wifi (ubuntu 16.04, xiaomi laptop)
-  sudo cp $HOME/.dotfiles/xm-laptop/xiaomi.conf /etc/modprobe.d/
+    sudo cp $HOME/.dotfiles/xm-laptop/xiaomi.conf /etc/modprobe.d/
 
 ##Linux:
     sudo apt-get install -y language-pack-en-base
@@ -23,9 +23,14 @@
     sudo apt-get update
     sudo apt-get install openjdk-7-jdk
 
-    Update the default Java version - optional
+
+## Update the default Java version - optional
     sudo update-alternatives --config java
     sudo update-alternatives --config javac
+
+    or 
+
+    https://github.com/ivan19871002/dotfiles/blob/master/android_env/jdk.sh
 
 ## android repo
     curl https://storage.googleapis.com/git-repo-downloads/repo > /opt/bin/repo
