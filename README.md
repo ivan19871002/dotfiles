@@ -3,21 +3,23 @@
 ## Fix wifi (ubuntu 16.04, xiaomi laptop)
     sudo sh -c 'echo "blacklist acer_wmi" >> /etc/modprobe.d/xiaomi.conf'
 
-##Linux:
-    sudo apt-get install -y language-pack-en-base
-    sudo apt-get install -y language-pack-zh-hans
-    sudo apt-get install -y geany
-    sudo apt-get install -y vim
-    sudo apt-get install -y exuberant-ctags
-    sudo apt-get install -y terminator
-    sudo apt-get install -y gitk
+## soft
+    sudo apt-get install language-pack-en-base language-pack-zh-hans \
+    geany vim exuberant-ctags terminator gitk ruby
 
 ## Ubuntu 16.04  Compaile Android ROM
     sudo apt-get install git ccache automake lzop bison \
     gperf build-essential zip curl zlib1g-dev zlib1g-dev:i386 \
     g++-multilib python-networkx libxml2-utils bzip2 libbz2-dev \
     libbz2-1.0 libghc-bzlib-dev squashfs-tools pngcrush \
-    schedtool dpkg-dev liblz4-tool make optipng maven libssl-dev
+    schedtool dpkg-dev liblz4-tool make optipng maven libssl-dev \
+    pwgen libswitch-perl
+
+## Android Tools (Ubuntu 14.04 or later)
+    sudo apt-get install android-tools-fastboot android-tools-adb
+
+## Android Tools (Mac)
+    brew install android-platform-tools
 
 ## install JDK on ubuntu
     jdk8
@@ -140,16 +142,7 @@
     cd ivan19871002.github.com
     jekyll serve
 
-## other (ubuntu 14.04 or later)
-    sudo apt-get install -y libswitch-perl
-    sudo apt-get install -y android-tools-fastboot
-    sudo apt-get install -y android-tools-adb
-    sudo apt-get install -y pwgen
-
-## adb fastb , Mac OS X
-    brew install android-platform-tools
-
-## soft
+## Google Chrome
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     sudo dpkg -i google-chrome-stable_current_amd64.deb
 
@@ -171,12 +164,6 @@
 
 ## redsocks
     sudo apt-get install redsocks
-
-## ubuntu-mate-desktop
-    sudo apt-get install ubuntu-mate-desktop 
-    sudo apt-add-repository ppa:ubuntu-mate-dev/xenial-mate
-    sudo apt-get update
-    sudo apt-get dist-upgrade 
 
 ## Input method
     http://pinyin.sogou.com/linux/

@@ -30,7 +30,6 @@
     scroll_on_output = False
     scrollback_infinite = True
     show_titlebar = False
-    use_custom_command = True
     use_system_font = False
   [[new]]
     background_image = None
