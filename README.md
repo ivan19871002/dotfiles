@@ -75,16 +75,9 @@
 ## terminator
 	gsettings set org.gnome.desktop.default-applications.terminal exec   /usr/bin/terminator
 	gsettings set org.gnome.desktop.default-applications.terminal exec-arg "-x"
-	sudo apt-get install -y nautilus-actions-config-tool
 	ln -s ~/.dotfiles/terminator/config ~/.config/terminator/config
 
-新建动作“在终端中打开(E)” ，
-选中“显示选择右键菜单中的项目”和“Display item in location context menu”。
-命令路径中填“/usr/bin/terminator”，参数放空，工作目录填“%d/%b”。
-
-## rvm, ruby 2.2.2
-    gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-    curl -L https://get.rvm.io | bash -s stable --autolibs=enabled --ruby=2.2.2
+## rvm
     gem sources -a https://ruby.taobao.org/
     gem sources --remove https://rubygems.org/
 
@@ -116,21 +109,17 @@
     cd autojump
     ./install.py
 
-    打开~/.zshrc
-    修改插件
+    ln -s $HOME/.dotfiles/zsh-config/raj.zsh-theme ~/.dotfiles/zsh/themes/raj.zsh-theme
+    vim ~/.zshrc
     plugins=(git autojump tmux tmuxinator gem terminator rake ruby)
-    添加
-    source ~/.dotfiles/zsh-config/aliases.zsh
-    修改主题
-    ln -s ~/.dotfiles/zsh-config/raj.zsh-theme ~/.dotfiles/zsh/themes/raj.zsh-theme
+    source $HOME/.dotfiles/zsh-config/aliases.zsh
     ZSH_THEME="raj"
-    export EDITOR='vim'
 
 ## Fonts
     git clone git@github.com:powerline/fonts.git
     cd fonts
     ./install.sh
-    终端选项中字体都选择Meslo LG S for Powerline
+    terminator font: Meslo LG S for Powerline
 
 ## github pages
     gem install jekyll
@@ -142,9 +131,7 @@
 ## Google Chrome
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     sudo dpkg -i google-chrome-stable_current_amd64.deb
-
     or
-
     wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
     sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
     sudo apt-get update
