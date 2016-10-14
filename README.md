@@ -4,8 +4,24 @@
     sudo sh -c 'echo "blacklist acer_wmi" >> /etc/modprobe.d/xiaomi.conf'
 
 ## soft
+#### Linux
     sudo apt-get install language-pack-en-base language-pack-zh-hans \
     geany vim exuberant-ctags terminator gitk ruby
+
+####Mac:
+    curl -LsSf http://github.com/mxcl/homebrew/tarball/master | sudo tar xvz -C/usr/local --strip 1
+    brew doctor
+    brew install git
+    brew install tmux
+    brew install autojump
+    brew install ruby
+    brew tap phinze/cask
+    brew install brew-cask
+    brew cask install iterm2
+    iterm2 settings--> General Command: /usr/local/bin/tmux -u
+    brew cask install google-chrome
+    brew tap homebrew/dupes
+    brew install homebrew/dupes/grep
 
 ## Ubuntu 16.04  Compaile Android ROM
     sudo apt-get install git ccache automake lzop bison \
@@ -24,7 +40,6 @@
 ## install JDK on ubuntu
     jdk8
     sudo apt-get install openjdk-8-jdk
-
     jdk7
     sudo add-apt-repository ppa:openjdk-r/ppa
     sudo apt-get update
@@ -34,30 +49,12 @@
 ## Update the default Java version - optional
     sudo update-alternatives --config java
     sudo update-alternatives --config javac
-
     or 
-
     https://github.com/ivan19871002/dotfiles/blob/master/android_env/jdk.sh
 
 ## android repo
     curl https://storage.googleapis.com/git-repo-downloads/repo > /opt/bin/repo
     add /opt/bin into PATH
-
-####Mac:
-    curl -LsSf http://github.com/mxcl/homebrew/tarball/master | sudo tar xvz -C/usr/local --strip 1
-    brew doctor
-    brew install git
-    brew install tmux
-    brew install autojump
-    brew install ruby
-    brew tap phinze/cask
-    brew install brew-cask
-    brew cask install iterm2
-    iterm2 settings--> General Command: /usr/local/bin/tmux -u
-    brew cask install google-chrome
-    brew tap homebrew/dupes
-    brew install homebrew/dupes/grep
-
 
 ## git
     git config --global alias.logc "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%an, %cd)%Creset' --abbrev-commit --date=short"
