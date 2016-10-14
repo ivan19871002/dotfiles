@@ -176,16 +176,14 @@
     sudo apt-get update
     sudo apt-get dist-upgrade 
 
-## input method
-    wiki: https://fcitx-im.org/wiki/Fcitx/zh-hans
-
-    sudo add-apt-repository ppa:fcitx-team/nightly
-
-    or
-
-    sudo add-apt-repository ppa:fcitx-team/stable
-
-    sudo apt-get update
+## Input method
+    http://pinyin.sogou.com/linux/
+    sudo apt-get install fcitx fcitx-libs fcitx-libs-qt libopencc1
+    sudo dpkg -i sogoupinyin.deb
+    if error
+    sudo apt-get remove sogoupinyin
+    sudo apt-get install missing-libs
+    then install sogoupinyin.deb
 
 ## For sogou input
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8D5A09DC9B929006
