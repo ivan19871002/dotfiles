@@ -13,7 +13,11 @@
     sudo apt-get install -y gitk
 
 ## Ubuntu 16.04  Compaile Android ROM
-    sudo apt-get install git ccache automake lzop bison gperf build-essential zip curl zlib1g-dev zlib1g-dev:i386 g++-multilib python-networkx libxml2-utils bzip2 libbz2-dev libbz2-1.0 libghc-bzlib-dev squashfs-tools pngcrush schedtool dpkg-dev liblz4-tool make optipng maven libssl-dev
+    sudo apt-get install git ccache automake lzop bison \
+    gperf build-essential zip curl zlib1g-dev zlib1g-dev:i386 \
+    g++-multilib python-networkx libxml2-utils bzip2 libbz2-dev \
+    libbz2-1.0 libghc-bzlib-dev squashfs-tools pngcrush \
+    schedtool dpkg-dev liblz4-tool make optipng maven libssl-dev
 
 ## install JDK on ubuntu
     jdk8
@@ -144,7 +148,7 @@
 
 ## adb fastb , Mac OS X
     brew install android-platform-tools
-    
+
 ## soft
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     sudo dpkg -i google-chrome-stable_current_amd64.deb
@@ -157,15 +161,13 @@
     sudo apt-get install google-chrome-stable
 
 ## SS
-   sudo add-apt-repository ppa:hzwhuang/ss-qt5
-   sudo apt-get update
-   sudo apt-get install shadowsocks-qt5
-
-   or
-
-   sudo apt-get install python-pip
-   pip install shadowsocks
-   sslocal -c /PATH/shadowsocks.json
+    sudo add-apt-repository ppa:hzwhuang/ss-qt5
+    sudo apt-get update
+    sudo apt-get install shadowsocks-qt5
+    or
+    sudo apt-get install python-pip
+    pip install shadowsocks
+    sslocal -c /PATH/shadowsocks.json
 
 ## redsocks
     sudo apt-get install redsocks
