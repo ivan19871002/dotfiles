@@ -19,7 +19,7 @@ fi
 
 #source $HOME/.dotfiles/tmux/tmuxinator.zsh
 
-export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/bin:$HOME/.dotfiles/android_env/bin/"
 export PATH="$PATH:/opt/bin"
 
 alias vi='vim'
