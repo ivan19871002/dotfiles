@@ -118,7 +118,6 @@
     git clone git@github.com:powerline/fonts.git
     cd fonts
     ./install.sh
-    terminator font: Meslo LG S for Powerline
 
 ## github pages
     gem install jekyll
