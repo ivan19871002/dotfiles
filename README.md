@@ -32,7 +32,8 @@
     pwgen libswitch-perl
 
 ## Android Tools (Ubuntu 14.04 or later)
-    sudo apt-get install android-tools-fastboot android-tools-adb
+    sudo cp ~/.dotfiles/android_env/android-platform-tools/adb /usr/bin
+    sudo cp ~/.dotfiles/android_env/android-platform-tools/fastboot /usr/bin
 
 ## Android Tools (Mac)
     brew install android-platform-tools
