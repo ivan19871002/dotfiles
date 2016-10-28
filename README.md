@@ -109,11 +109,10 @@
     cd autojump
     ./install.py
 
-    ln -s $HOME/.dotfiles/zsh-config/raj.zsh-theme ~/.dotfiles/zsh/themes/raj.zsh-theme
     vim ~/.zshrc
     plugins=(git autojump tmux tmuxinator gem terminator rake ruby)
     source $HOME/.dotfiles/zsh-config/aliases.zsh
-    ZSH_THEME="raj"
+    ZSH_THEME="ys"
 
 ## Fonts
     git clone git@github.com:powerline/fonts.git
