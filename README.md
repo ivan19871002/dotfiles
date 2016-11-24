@@ -46,6 +46,10 @@
     sudo apt-get update
     sudo apt-get install openjdk-7-jdk
 
+    java plug-in for firefox
+    sudo apt-get install icedtea-8-plugin
+    or
+    sudo apt-get install icedtea-7-plugin
 
 ## Update the default Java version - optional
     sudo update-alternatives --config java
