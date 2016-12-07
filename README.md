@@ -167,3 +167,6 @@
 ## For Chinese
     export LANG=en_US
     xdg-user-dirs-gtk-update
+
+## For smba
+    sudo apt-get install nfs-common cifs-utils
