@@ -170,3 +170,6 @@
 
 ## For smba
     sudo apt-get install nfs-common cifs-utils
+    example:
+    sudo mount -t cifs //www.xxxx.com/ftp /data/ftp -o username=anonymous,password='',uid=1000,gid=1000
+    sudo mount -t cifs //www.xxxx.com/ftp /data/ftp -o username=yourname,password=yourpassword,uid=1000,gid=1000
