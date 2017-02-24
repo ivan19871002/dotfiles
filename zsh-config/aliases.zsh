@@ -37,4 +37,5 @@ alias redsocks_stop='sudo ~/.dotfiles/redsocks/redsocks.sh stop'
 
 export EDITOR='vim'
 # kill all tmux session
-alias alias kts='tmux ls | awk '\''{print $1}'\'' | sed '\''s/://g'\'' | xargs -I{} tmux kill-session -t {}'
+alias kts='tmux ls | awk '\''{print $1}'\'' | sed '\''s/://g'\'' | xargs -I{} tmux kill-session -t {}'
+alias rlusb="sudo modprobe -r usbhid && sudo modprobe usbhid"
