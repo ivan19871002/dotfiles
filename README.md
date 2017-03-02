@@ -35,6 +35,9 @@
     sudo cp ~/.dotfiles/android_env/android-platform-tools/adb /usr/bin
     sudo cp ~/.dotfiles/android_env/android-platform-tools/fastboot /usr/bin
 
+    sudo cp ~/.dotfiles/android_env/51-android.rules /etc/udev/rules.d/
+    sudo cp ~/.dotfiles/android_env/70-android.rules /etc/udev/rules.d/
+
 ## Android Tools (Mac)
     brew install android-platform-tools
 
