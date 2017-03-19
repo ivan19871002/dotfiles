@@ -8,7 +8,7 @@
     sudo apt-get install language-pack-en-base language-pack-zh-hans \
     geany vim exuberant-ctags terminator gitk ruby
 
-####Mac:
+#### Mac:
     curl -LsSf http://github.com/mxcl/homebrew/tarball/master | sudo tar xvz -C/usr/local --strip 1
     brew doctor
     brew install git
@@ -81,9 +81,9 @@
     sh ~/.vim_runtime/install_awesome_vimrc.sh
 
 ## terminator
-	gsettings set org.gnome.desktop.default-applications.terminal exec   /usr/bin/terminator
-	gsettings set org.gnome.desktop.default-applications.terminal exec-arg "-x"
-	ln -s ~/.dotfiles/terminator/config ~/.config/terminator/config
+    gsettings set org.gnome.desktop.default-applications.terminal exec   /usr/bin/terminator
+    gsettings set org.gnome.desktop.default-applications.terminal exec-arg "-x"
+    ln -s ~/.dotfiles/terminator/config ~/.config/terminator/config
 
 ## rvm
     gem sources -a https://ruby.taobao.org/
