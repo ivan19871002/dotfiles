@@ -93,7 +93,7 @@
     gem install tmuxinator
 
 ## tmux
-####Linux:
+#### Linux:
     wget https://github.com/libevent/libevent/releases/download/release-2.0.22-stable/libevent-2.0.22-stable.tar.gz
     tar vxzf libevent-2.0.22-stable.tar.gz -C ./
     cd libevent-2.0.22-stable
@@ -106,7 +106,7 @@
     ./configure --prefix=/usr && make
     sudo make install
 
-####Mac and Linux
+#### Mac and Linux
     ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 
 ## zsh
