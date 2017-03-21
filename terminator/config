@@ -2,7 +2,6 @@
   custom_url_handler = Terminator
   enabled_plugins = CustomCommandsMenu, LaunchpadBugURLHandler
   focus = system
-  tab_position = bottom
   title_transmit_bg_color = "#d30102"
 [keybindings]
   switch_to_tab_1 = <Alt>1
