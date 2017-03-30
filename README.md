@@ -100,11 +100,14 @@
     ./configure --prefix=/usr && make
     sudo make install
 
+    /*
     git clone git@github.com:tmux/tmux.git
     cd tmux
     sh autogen.sh
     ./configure --prefix=/usr && make
     sudo make install
+    */
+    sudo apt-get install tmux
 
 #### Mac and Linux
     ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
