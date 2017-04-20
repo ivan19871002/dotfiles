@@ -167,6 +167,9 @@
     sudo apt-get install missing-libs
     then install sogoupinyin.deb
 
+    or google pinyin
+    sudo apt-get install fcitx-googlepinyin
+
 ## For sogou input
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8D5A09DC9B929006
 
