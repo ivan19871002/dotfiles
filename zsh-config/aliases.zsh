@@ -39,3 +39,6 @@ export EDITOR='vim'
 # kill all tmux session
 alias kts='tmux ls | awk '\''{print $1}'\'' | sed '\''s/://g'\'' | xargs -I{} tmux kill-session -t {}'
 alias rlusb="sudo modprobe -r usbhid && sudo modprobe usbhid"
+
+# minicom
+alias uartlog="sudo minicom -c on -C uart-log-$(date +%Y-%m-%d_%H:%M:%S).log"
