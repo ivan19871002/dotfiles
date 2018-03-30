@@ -160,7 +160,7 @@
     sudo apt-get install redsocks
 
 ## v2ray
-    [v2ray webside](https://www.v2ray.com/chapter_00/install.html)
+    https://www.v2ray.com/chapter_00/install.html
 
 ## Input method
     http://pinyin.sogou.com/linux/
