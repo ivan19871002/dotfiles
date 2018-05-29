@@ -30,7 +30,7 @@
     libbz2-1.0 libghc-bzlib-dev squashfs-tools pngcrush \
     schedtool dpkg-dev liblz4-tool make optipng maven libssl-dev \
     pwgen libswitch-perl policycoreutils minicom libxml-sax-base-perl \
-    libxml-simple-perl
+    libxml-simple-perl bc
 
 ## Android Tools (Ubuntu 14.04 or later)
     sudo cp ~/.dotfiles/android_env/android-platform-tools/adb /usr/bin
