@@ -1,0 +1,54 @@
+{
+  "log" : {
+    "access": "/var/log/v2ray/access.log",
+    "error": "/var/log/v2ray/error.log",
+    "loglevel": "warning"
+  },
+  "inbound": {
+    "port": 1080,
+    "protocol": "socks",
+    "settings": {
+      "auth": "noauth",
+      "udp": true
+    },
+    "domainOverride": [
+      "http",
+      "tls"
+    ]
+  },
+  "outbound": {
+    "protocol": "vmess",
+    "settings": {
+      "vnext": [
+        {
+          "address": "xxxxxxxxxxxxxxxx",
+          "port": 443,
+          "users": [
+            {
+              "id": "xxxxxxxxxxxxxxxx",
+              "alterId": xxxx,
+              "security": "xxxxxxxxxxxxxx",
+              "level": 0
+            }
+          ]
+        }
+      ]
+    },
+     "tag": "proxy",
+     "streamSettings": {
+       "network": "tcp",
+       "security": "tls",
+       "tlsSettings": {
+        "serverName": "",
+        "allowInsecure": false
+       }
+   }
+  },
+ "dns": {
+    "servers": [
+      "8.8.8.8",
+      "8.8.4.4",
+      "localhost"
+   ]
+ }
+}
