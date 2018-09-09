@@ -186,3 +186,8 @@
     example:
     sudo mount -t cifs //www.xxxx.com/ftp /data/ftp -o username=anonymous,password='',uid=1000,gid=1000
     sudo mount -t cifs //www.xxxx.com/ftp /data/ftp -o username=yourname,password=yourpassword,uid=1000,gid=1000
+## For time
+    sudo apt-get install ntpdate
+    sudo ntpdate time.windows.com
+    sudo hwclock --localtime --systohc
+
