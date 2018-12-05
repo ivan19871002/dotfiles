@@ -22,19 +22,13 @@ fi
 export PATH="$PATH:$HOME/bin:$HOME/.dotfiles/android_env/bin/"
 export PATH="$PATH:/opt/bin"
 export PATH="$PATH:/data/bin:/data/bin/adb_tool:/data/bin/minidump:/data/bin/mkboot"
+export PATH="$PATH:/work/bin:/work/bin/minidump"
 
 alias vi='vim'
-
-alias logcat='python ~/.dotfiles/colored-adb-logcat.py'
-alias kmsg='adb shell cat /proc/kmsg'
-alias lastkmsg='adb shell cat /proc/last_kmsg'
 
 alias cls='clear'
 alias ll='ls -l'
 alias la='ls -la'
-
-alias redsocks_start='sudo ~/.dotfiles/redsocks/redsocks.sh start'
-alias redsocks_stop='sudo ~/.dotfiles/redsocks/redsocks.sh stop'
 
 export EDITOR='vim'
 # kill all tmux session

@@ -147,18 +147,6 @@
     sudo apt-get update
     sudo apt-get install google-chrome-stable
 
-## SS
-    sudo add-apt-repository ppa:hzwhuang/ss-qt5
-    sudo apt-get update
-    sudo apt-get install shadowsocks-qt5
-    or
-    sudo apt-get install python-pip
-    pip install shadowsocks
-    sslocal -c /PATH/shadowsocks.json
-
-## redsocks
-    sudo apt-get install redsocks
-
 ## v2ray
     https://www.v2ray.com/chapter_00/install.html
 
