@@ -21,8 +21,7 @@ fi
 
 export PATH="$PATH:$HOME/bin:$HOME/.dotfiles/android_env/bin/"
 export PATH="$PATH:/opt/bin"
-export PATH="$PATH:/data/bin:/data/bin/adb_tool:/data/bin/minidump:/data/bin/mkboot"
-export PATH="$PATH:/work/bin:/work/bin/minidump"
+export PATH="$PATH:/work/bin:/work/bin/adb_tool:/work/bin/minidump:/work/bin/mkboot"
 
 alias vi='vim'
 
