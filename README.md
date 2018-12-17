@@ -149,6 +149,7 @@
     sudo apt-get install google-chrome-stable
 
 ## v2ray
+    https://github.com/v2ray/v2ray-core/releases
     https://www.v2ray.com/chapter_00/install.html
 
 ## Input method
