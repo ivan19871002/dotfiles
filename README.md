@@ -86,22 +86,14 @@
     gsettings set org.gnome.desktop.default-applications.terminal exec-arg "-x"
     ln -s ~/.dotfiles/terminator/config ~/.config/terminator/config
 
+## Fonts
+-    git clone git@github.com:powerline/fonts.git
+-    cd fonts
+    ./install.sh
+
 ## tmux
 #### Linux:
-    wget https://github.com/libevent/libevent/releases/download/release-2.0.22-stable/libevent-2.0.22-stable.tar.gz
-    tar vxzf libevent-2.0.22-stable.tar.gz -C ./
-    cd libevent-2.0.22-stable
-    ./configure --prefix=/usr && make
-    sudo make install
-
-    /*
-    git clone git@github.com:tmux/tmux.git
-    cd tmux
-    sh autogen.sh
-    ./configure --prefix=/usr && make
-    sudo make install
-    */
-    sudo apt-get install tmux
+    sudo apt-get install libevent-dev tmux
 
 #### Mac and Linux
     ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
@@ -133,11 +125,6 @@
       zsh-syntax-highlighting
     )
     source $HOME/.dotfiles/zsh-config/aliases.zsh
-
-## Fonts
-    git clone git@github.com:powerline/fonts.git
-    cd fonts
-    ./install.sh
 
 ## Google Chrome
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
