@@ -125,7 +125,6 @@
     vim ~/.zshrc
     plugins=(git autojump tmux tmuxinator gem terminator rake ruby)
     source $HOME/.dotfiles/zsh-config/aliases.zsh
-    ZSH_THEME="ys"
 
 ## Fonts
     git clone git@github.com:powerline/fonts.git
