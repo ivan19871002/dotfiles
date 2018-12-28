@@ -122,8 +122,22 @@
     cd autojump
     ./install.py
 
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.dotfiles/zsh/custom/plugins/zsh-syntax-highlighting
+    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.dotfiles/zsh/custom/plugins/zsh-autosuggestions
+
     vim ~/.zshrc
-    plugins=(git autojump tmux tmuxinator gem terminator rake ruby)
+    plugins=(
+      git
+      autojump
+      tmux
+      tmuxinator
+      gem
+      terminator
+      rake
+      ruby
+      zsh-autosuggestion
+      zsh-syntax-highlighting
+    )
     source $HOME/.dotfiles/zsh-config/aliases.zsh
 
 ## Fonts
