@@ -6,7 +6,7 @@
 ## soft
 #### Linux
     sudo apt-get install language-pack-en-base language-pack-zh-hans \
-    geany vim exuberant-ctags terminator gitk ruby
+    geany vim exuberant-ctags terminator gitk
 
 #### Mac:
     curl -LsSf http://github.com/mxcl/homebrew/tarball/master | sudo tar xvz -C/usr/local --strip 1
@@ -14,7 +14,6 @@
     brew install git
     brew install tmux
     brew install autojump
-    brew install ruby
     brew tap phinze/cask
     brew install brew-cask
     brew cask install iterm2
@@ -87,13 +86,6 @@
     gsettings set org.gnome.desktop.default-applications.terminal exec-arg "-x"
     ln -s ~/.dotfiles/terminator/config ~/.config/terminator/config
 
-## rvm
-    gem sources -a https://ruby.taobao.org/
-    gem sources --remove https://rubygems.org/
-
-## tmuxinator
-    gem install tmuxinator
-
 ## tmux
 #### Linux:
     wget https://github.com/libevent/libevent/releases/download/release-2.0.22-stable/libevent-2.0.22-stable.tar.gz
@@ -128,13 +120,15 @@
     vim ~/.zshrc
     plugins=(
       git
+      colored-man-pages
       autojump
       tmux
-      tmuxinator
-      gem
+      catimg
+      extract
+      z
       terminator
-      rake
-      ruby
+      command-not-found
+      history-substring-search
       zsh-autosuggestion
       zsh-syntax-highlighting
     )
@@ -144,13 +138,6 @@
     git clone git@github.com:powerline/fonts.git
     cd fonts
     ./install.sh
-
-## github pages
-    gem install jekyll
-    sudo apt-get install -y nodejs
-    git clone git@github.com:ivan19871002/ivan19871002.github.com.git
-    cd ivan19871002.github.com
-    jekyll serve
 
 ## Google Chrome
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
