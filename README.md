@@ -6,7 +6,8 @@
 ## soft
 #### Linux
     sudo apt-get install language-pack-en-base language-pack-zh-hans \
-    geany vim exuberant-ctags terminator gitk
+    geany vim exuberant-ctags terminator gitk libevent-dev tmux unzip git \
+    zip curl unrar zsh
 
 #### Mac:
     curl -LsSf http://github.com/mxcl/homebrew/tarball/master | sudo tar xvz -C/usr/local --strip 1
@@ -23,14 +24,14 @@
     brew install homebrew/dupes/grep
 
 ## Ubuntu  Compaile Android ROM
-    sudo apt-get install git ccache automake flex lzop bison \
-    gperf build-essential zip curl zlib1g-dev zlib1g-dev:i386 \
+    sudo apt-get install ccache automake flex lzop bison \
+    gperf build-essential zlib1g-dev zlib1g-dev:i386 \
     g++-multilib python-networkx libxml2-utils bzip2 libbz2-dev \
     libbz2-1.0 libghc-bzlib-dev squashfs-tools pngcrush \
     schedtool dpkg-dev liblz4-tool make optipng maven libssl-dev \
     pwgen libswitch-perl policycoreutils minicom libxml-sax-base-perl \
     libxml-simple-perl bc libc6-dev-i386 lib32ncurses5-dev \
-    x11proto-core-dev libx11-dev lib32z-dev libgl1-mesa-dev xsltproc unzip
+    x11proto-core-dev libx11-dev lib32z-dev libgl1-mesa-dev xsltproc
 
 ## Android Tools (Ubuntu 14.04 or later)
     sudo cp ~/.dotfiles/android_env/android-platform-tools/adb /usr/bin
@@ -87,19 +88,15 @@
     ln -s ~/.dotfiles/terminator/config ~/.config/terminator/config
 
 ## Fonts
--    git clone git@github.com:powerline/fonts.git
--    cd fonts
+    git clone git@github.com:powerline/fonts.git
+    cd fonts
     ./install.sh
 
 ## tmux
-#### Linux:
-    sudo apt-get install libevent-dev tmux
-
 #### Mac and Linux
     ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 
 ## zsh
-    sudo apt-get install -y zsh
     curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | ZSH=~/.dotfiles/zsh sh
     chsh -s /bin/zsh
     git clone git://github.com/joelthelion/autojump.git
