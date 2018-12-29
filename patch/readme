@@ -1,0 +1,41 @@
+https://blog.csdn.net/xrinosvip/article/details/81174713
+
+sudo apt-get install m4
+sudo apt-get install lzip
+lzip -d gmp-6.1.2.tar.lz
+tar -Jxvf gmp-6.1.2.tar
+mkdir temp
+cd temp
+../gmp-6.1.2/configure --prefix=/usr/local/gmp-6.1.2
+make
+sudo make install
+
+tar -zxvf mpfr-4.0.1.tar.gz
+rm -rf temp
+mkdir temp
+cd temp
+../mpfr-4.0.1/configure --prefix=/usr/local/mpfr-4.0.1 --with-gmp=/usr/local/gmp-6.1.2
+make
+sudo make install
+
+tar -zxvf mpc-1.1.0.tar.gz
+rm -rf temp
+cd temp
+../mpc-1.1.0/configure --prefix=/usr/local/mpc-1.1.0 --with-gmp=/usr/local/gmp-6.1.2 --with-mpfr=/usr/local/mpfr-4.0.1
+make
+sudo make install
+
+tar -vxzf gcc-5.4.0.tar.gz
+rm -rf temp
+mkdir temp
+cd temp
+
+rm -rf temp
+mkdir temp
+cd temp
+
+rm -rf temp
+mkdir temp
+cd temp
+../gcc-5.4.0/configure --prefix=/usr/local/gcc-5.4.0 --enable-threads=posix --disable-checking --disable-multilib --enable-languages=c,c++ --with-gmp=/usr/local/gmp-6.1.2 --with-mpfr=/usr/local/mpfr-4.0.1 --with-mpc=/usr/local/mpc-1.1.0
+
