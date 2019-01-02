@@ -7,7 +7,7 @@
 #### Linux
     sudo apt-get install language-pack-en-base language-pack-zh-hans \
     geany vim exuberant-ctags terminator gitk libevent-dev tmux unzip git \
-    zip curl unrar zsh
+    zip curl unrar zsh exfat-fuse exfat-utils
 
 #### Mac:
     curl -LsSf http://github.com/mxcl/homebrew/tarball/master | sudo tar xvz -C/usr/local --strip 1
