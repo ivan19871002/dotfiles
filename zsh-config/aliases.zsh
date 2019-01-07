@@ -23,7 +23,7 @@ export PATH="$PATH:$HOME/bin:$HOME/.dotfiles/android_env/bin/"
 export PATH="$PATH:/opt/bin"
 export PATH="$PATH:/work/bin:/work/bin/adb_tool:/work/bin/minidump:/work/bin/mkboot"
 
-alias reposync='repo sync -j16 --force-sync -c -f --no-tags --no-clone-bundle'
+alias reposync='repo sync -j$(nproc) --force-sync -c -f --no-tags --no-clone-bundle'
 
 alias vi='vim'
 
