@@ -115,10 +115,8 @@
       catimg
       extract
       z
-      terminator
       command-not-found
       history-substring-search
-      zsh-autosuggestion
       zsh-syntax-highlighting
     )
     source $HOME/.dotfiles/zsh-config/aliases.zsh
