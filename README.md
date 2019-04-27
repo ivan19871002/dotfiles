@@ -99,9 +99,6 @@
 ## zsh
     curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | ZSH=~/.dotfiles/zsh sh
     chsh -s /bin/zsh
-    git clone git://github.com/joelthelion/autojump.git
-    cd autojump
-    ./install.py
 
     git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.dotfiles/zsh/custom/plugins/zsh-syntax-highlighting
     git clone https://github.com/zsh-users/zsh-autosuggestions ~/.dotfiles/zsh/custom/plugins/zsh-autosuggestions
@@ -110,13 +107,13 @@
     plugins=(
       git
       colored-man-pages
-      autojump
       tmux
       catimg
       extract
       z
       command-not-found
       history-substring-search
+      zsh-autosuggestions
       zsh-syntax-highlighting
     )
     source $HOME/.dotfiles/zsh-config/aliases.zsh

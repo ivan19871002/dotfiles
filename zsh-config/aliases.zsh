@@ -1,5 +1,4 @@
 if [[ `uname` == 'Darwin' ]]; then
-    [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
     export CLICOLOR=1
     export LSCOLORS=gxfxaxdxcxegedabagacad
@@ -7,8 +6,6 @@ if [[ `uname` == 'Darwin' ]]; then
 
     alias grep='grep --color=auto'
 else
-    [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
-    [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
     if [ `uname -r | grep ARCH` ]; then
         source $HOME/.dotfiles/android_env/android_env.sh
         source $HOME/.dotfiles/android_env/init.sh
