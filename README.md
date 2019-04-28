@@ -102,6 +102,9 @@
 
     git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.dotfiles/zsh/custom/plugins/zsh-syntax-highlighting
     git clone https://github.com/zsh-users/zsh-autosuggestions ~/.dotfiles/zsh/custom/plugins/zsh-autosuggestions
+    git clone git://github.com/wting/autojump.git
+    cd autojump
+    ./install.py
 
     vim ~/.zshrc
     plugins=(
@@ -110,6 +113,7 @@
       tmux
       catimg
       extract
+      audojump
       z
       command-not-found
       history-substring-search
