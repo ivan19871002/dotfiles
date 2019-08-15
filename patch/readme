@@ -11,7 +11,7 @@ make
 sudo make install
 
 tar -zxvf mpfr-4.0.1.tar.gz
-rm -rf temp
+sudo rm -rf temp
 mkdir temp
 cd temp
 ../mpfr-4.0.1/configure --prefix=/usr/local/mpfr-4.0.1 --with-gmp=/usr/local/gmp-6.1.2
@@ -19,23 +19,26 @@ make
 sudo make install
 
 tar -zxvf mpc-1.1.0.tar.gz
-rm -rf temp
+sudo rm -rf temp
 cd temp
 ../mpc-1.1.0/configure --prefix=/usr/local/mpc-1.1.0 --with-gmp=/usr/local/gmp-6.1.2 --with-mpfr=/usr/local/mpfr-4.0.1
 make
 sudo make install
 
 tar -vxzf gcc-5.4.0.tar.gz
-rm -rf temp
-mkdir temp
-cd temp
-
-rm -rf temp
-mkdir temp
-cd temp
-
-rm -rf temp
+cd gcc-5.4.0
+git init
+git add --all
+git commit -s -m 'init'
+git am 0001-fix-build-gcc-5.4-on-ubuntu-18.04.patch
+cd ..
+sudo rm -rf temp
 mkdir temp
 cd temp
 ../gcc-5.4.0/configure --prefix=/usr/local/gcc-5.4.0 --enable-threads=posix --disable-checking --disable-multilib --enable-languages=c,c++ --with-gmp=/usr/local/gmp-6.1.2 --with-mpfr=/usr/local/mpfr-4.0.1 --with-mpc=/usr/local/mpc-1.1.0
+make
+sudo make install
+sudo ln -s /usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.4.0 /usr/lib/gcc/x86_64-linux-gnu/5
+sudo cp sigset.h /usr/include/x86_64-linux-gnu/bits/
+sudo cp xlocale.h /usr/include/
 
