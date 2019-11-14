@@ -18,7 +18,7 @@ export PATH="$PATH:$HOME/bin:$HOME/.dotfiles/android_env/bin"
 export PATH="$PATH:/opt/bin"
 export PATH="$PATH:/work/bin:/work/bin/adb_tool:/work/bin/minidump:/work/bin/mkboot:/work/tool/Android-Image-Kitchen"
 
-alias reposync='repo sync -j4 --force-sync -c -f --no-tags --no-clone-bundle'
+alias reposync='repo sync -j4 -c --no-tags --no-clone-bundle'
 alias findm="grep -rnws --include='*.[mb][kp]' 'LOCAL_MODULE\|LOCAL_PACKAGE_NAME\|name:'"
 
 alias vi='vim'
