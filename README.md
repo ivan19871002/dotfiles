@@ -96,6 +96,10 @@
 #### Mac and Linux
     ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 
+## python
+    mkdir -p ~/.pip
+    ln -s ~/.dotfiles/python/pip.conf ~/.pip/pip.conf
+
 ## zsh
     curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | ZSH=~/.dotfiles/zsh sh
     chsh -s /bin/zsh
