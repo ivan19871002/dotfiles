@@ -13,7 +13,7 @@ else
 fi
 
 #source $HOME/.dotfiles/tmux/tmuxinator.zsh
-
+source $HOME/.dotfiles/minicom/myminicom.sh
 export PATH="$PATH:$HOME/bin:$HOME/.dotfiles/android_env/bin"
 export PATH="$PATH:/opt/bin"
 export PATH="$PATH:/data/bin:/data/bin/adb_tool:/data/bin/minidump:/data/bin/mkboot:/data/tool/Android-Image-Kitchen"
@@ -33,4 +33,4 @@ alias kts='tmux ls | awk '\''{print $1}'\'' | sed '\''s/://g'\'' | xargs -I{} tm
 alias rlusb="sudo modprobe -r usbhid && sudo modprobe usbhid"
 
 # minicom
-alias uartlog="sudo minicom -c on -C uart-log-$(date +%Y-%m-%d_%H:%M:%S).log"
+#alias uartlog="sudo minicom -c on -C uart-log-$(date +%Y-%m-%d_%H:%M:%S).log"

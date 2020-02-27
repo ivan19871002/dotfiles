@@ -100,6 +100,9 @@
     mkdir -p ~/.pip
     ln -s ~/.dotfiles/python/pip.conf ~/.pip/pip.conf
 
+## minicom
+    sudo cp ~/.dotfiles/minicom/70-ttyusb.rules /etc/udev/rules.d/
+
 ## zsh
     curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | ZSH=~/.dotfiles/zsh sh
     chsh -s /bin/zsh
