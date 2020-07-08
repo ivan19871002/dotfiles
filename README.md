@@ -31,7 +31,7 @@
     schedtool dpkg-dev liblz4-tool make optipng maven libssl-dev \
     pwgen libswitch-perl policycoreutils minicom libxml-sax-base-perl \
     libxml-simple-perl bc libc6-dev-i386 lib32ncurses5-dev \
-    x11proto-core-dev libx11-dev lib32z-dev libgl1-mesa-dev xsltproc
+    x11proto-core-dev libx11-dev lib32z-dev libgl1-mesa-dev xsltproc uuid-dev
 
 ## Android Tools (Ubuntu 14.04 or later)
     sudo cp ~/.dotfiles/android_env/android-platform-tools/adb /usr/bin
