@@ -16,7 +16,7 @@ fi
 source $HOME/.dotfiles/minicom/myminicom.sh
 export PATH="$PATH:$HOME/bin:$HOME/.dotfiles/android_env/bin"
 export PATH="$PATH:/opt/bin"
-export PATH="$PATH:/data/bin:/data/bin/adb_tool:/data/bin/minidump:/data/bin/mkboot:/data/tool/Android-Image-Kitchen"
+export PATH="$PATH:/work/bin:/work/bin/adb_tool:/work/bin/minidump:/work/bin/mkboot:/work/tool/Android-Image-Kitchen"
 
 alias reposync='repo sync -j4 -c --no-tags --no-clone-bundle'
 alias findm="grep -rnws --include='*.[mb][kp]' 'LOCAL_MODULE\|LOCAL_PACKAGE_NAME\|name:'"
