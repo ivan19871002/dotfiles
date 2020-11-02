@@ -11,13 +11,13 @@ else
         source $HOME/.dotfiles/android_env/android_env.sh
         source $HOME/.dotfiles/android_env/init.sh
     fi
+    export PATH="$PATH:/work/bin:/work/bin/adb_tool:/work/bin/minidump:/work/bin/mkboot:/work/tool/Android-Image-Kitchen"
 fi
 
 #source $HOME/.dotfiles/tmux/tmuxinator.zsh
 source $HOME/.dotfiles/minicom/myminicom.sh
 export PATH="$PATH:$HOME/bin:$HOME/.dotfiles/android_env/bin"
 export PATH="$PATH:/opt/bin"
-export PATH="$PATH:/work/bin:/work/bin/adb_tool:/work/bin/minidump:/work/bin/mkboot:/work/tool/Android-Image-Kitchen"
 
 alias reposync='repo sync -j4 -c --no-tags --no-clone-bundle'
 alias findm="grep -rnws --include='*.[mb][kp]' 'LOCAL_MODULE\|LOCAL_PACKAGE_NAME\|name:'"
