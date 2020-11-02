@@ -2,7 +2,7 @@ if [[ `uname` == 'Darwin' ]]; then
 
     export CLICOLOR=1
     export LSCOLORS=gxfxaxdxcxegedabagacad
-    export PATH="$(brew --prefix sqlite)/bin:$(brew --prefix grep)/bin:$PATH"
+    export PATH="$(brew --prefix sqlite)/bin:$(brew --prefix grep)/bin:$HOME/adb:$PATH"
 
     alias grep='grep --color=auto'
 else
