@@ -23,6 +23,12 @@
     brew tap homebrew/dupes
     brew install homebrew/dupes/grep
     brew install lsusb
+    brew install minicom
+    brew install vscode
+    brew install unrar
+    brew install python
+    brew install pip
+    brew install p7zip
 
 ## Ubuntu  Compaile Android ROM
     sudo apt-get install ccache automake flex lzop bison \
