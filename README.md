@@ -34,8 +34,8 @@
     x11proto-core-dev libx11-dev lib32z-dev libgl1-mesa-dev xsltproc uuid-dev
 
 ## Android USB
-    sudo cp ~/.dotfiles/android_env/51-android.rules /etc/udev/rules.d/
-    sudo cp ~/.dotfiles/android_env/70-android.rules /etc/udev/rules.d/
+    sudo cp ~/.dotfiles/android_env/usbconfig/51-android.rules /etc/udev/rules.d/
+    sudo cp ~/.dotfiles/android_env/usbconfig/70-android.rules /etc/udev/rules.d/
 
 ## Android repo
     curl https://storage.googleapis.com/git-repo-downloads/repo > /opt/bin/repo
