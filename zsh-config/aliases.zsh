@@ -10,7 +10,7 @@ else
         source $HOME/.dotfiles/android_env/android_env.sh
         source $HOME/.dotfiles/android_env/init.sh
     fi
-    export PATH="$PATH:/work/bin:/work/bin/adb_tool:/work/bin/minidump:/work/bin/mkboot:/work/tool/Android-Image-Kitchen"
+    export PATH="$PATH:/work/bin:/work/bin/adb_tool:/work/bin/minidump:/work/bin/mkboot:/work/tool/Android-Image-Kitchen:$HOME/.dotfiles/android_env/bin/linux:$HOME/.dotfiles/android_env/android-platform-tools/linux"
 fi
 
 #source $HOME/.dotfiles/tmux/tmuxinator.zsh
