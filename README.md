@@ -22,6 +22,7 @@
     brew cask install google-chrome
     brew tap homebrew/dupes
     brew install homebrew/dupes/grep
+    brew install lsusb
 
 ## Ubuntu  Compaile Android ROM
     sudo apt-get install ccache automake flex lzop bison \
