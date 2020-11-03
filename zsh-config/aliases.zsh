@@ -1,7 +1,7 @@
 if [[ `uname` == 'Darwin' ]]; then
     export CLICOLOR=1
     export LSCOLORS=gxfxaxdxcxegedabagacad
-    export PATH="$(brew --prefix sqlite)/bin:$(brew --prefix grep)/bin:$HOME/adb:$HOME/.dotfiles/android_env/android-platform-tools/darwin:$HOME/.dotfiles/android_env/bin/darwin:$PATH"
+    export PATH="$(brew --prefix sqlite)/bin:$(brew --prefix grep)/bin:$HOME/.dotfiles/android_env/android-platform-tools/darwin:$HOME/.dotfiles/android_env/bin/darwin:$PATH"
     alias grep='grep --color=auto'
 else
     export PATH="$HOME/.dotfiles/android_env/bin/linux:$HOME/.dotfiles/android_env/android-platform-tools/linux:$PATH"
