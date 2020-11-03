@@ -29,6 +29,8 @@
     brew install python
     brew install pip
     brew install p7zip
+    brew install osxfuse
+    brew install ext4fuse
 
 ## Ubuntu  Compaile Android ROM
     sudo apt-get install ccache automake flex lzop bison \
