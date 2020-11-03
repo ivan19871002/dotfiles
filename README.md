@@ -33,40 +33,15 @@
     libxml-simple-perl bc libc6-dev-i386 lib32ncurses5-dev \
     x11proto-core-dev libx11-dev lib32z-dev libgl1-mesa-dev xsltproc uuid-dev
 
-## Android Tools (Ubuntu 14.04 or later)
-    sudo cp ~/.dotfiles/android_env/android-platform-tools/adb /usr/bin
-    sudo cp ~/.dotfiles/android_env/android-platform-tools/fastboot /usr/bin
-
+## Android USB
     sudo cp ~/.dotfiles/android_env/51-android.rules /etc/udev/rules.d/
     sudo cp ~/.dotfiles/android_env/70-android.rules /etc/udev/rules.d/
 
-## Android Tools (Mac)
-    brew install android-platform-tools
-
-## install JDK on ubuntu
-    jdk8
-    sudo apt-get install openjdk-8-jdk
-    jdk7
-    sudo add-apt-repository ppa:openjdk-r/ppa
-    sudo apt-get update
-    sudo apt-get install openjdk-7-jdk
-
-    java plug-in for firefox
-    sudo apt-get install icedtea-8-plugin
-    or
-    sudo apt-get install icedtea-7-plugin
-
-## Update the default Java version - optional
-    sudo update-alternatives --config java
-    sudo update-alternatives --config javac
-    or 
-    https://github.com/ivan19871002/dotfiles/blob/master/android_env/jdk.sh
-
-## android repo
+## Android repo
     curl https://storage.googleapis.com/git-repo-downloads/repo > /opt/bin/repo
     add /opt/bin into PATH
 
-## git
+## Git
     git config --global alias.logc "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%an, %cd)%Creset' --abbrev-commit --date=short"
     git config --global color.ui auto
     git config --global user.name "Ivan Huang"
@@ -78,11 +53,11 @@
 
     git clone git@github.com:ivan19871002/dotfiles.git ~/.dotfiles
 
-## vim
+## Vim
     git clone git@github.com:ivan19871002/vimrc.git ~/.vim_runtime
     sh ~/.vim_runtime/install_awesome_vimrc.sh
 
-## terminator
+## Terminator
     gsettings set org.gnome.desktop.default-applications.terminal exec   /usr/bin/terminator
     gsettings set org.gnome.desktop.default-applications.terminal exec-arg "-x"
     ln -s ~/.dotfiles/terminator/config ~/.config/terminator/config
@@ -92,18 +67,18 @@
     cd fonts
     ./install.sh
 
-## tmux
+## Tmux
 #### Mac and Linux
     ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 
-## python
+## Python
     mkdir -p ~/.pip
     ln -s ~/.dotfiles/python/pip.conf ~/.pip/pip.conf
 
-## minicom
+## Minicom
     sudo cp ~/.dotfiles/minicom/70-ttyusb.rules /etc/udev/rules.d/
 
-## zsh
+## Zsh
     curl -L https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | ZSH=~/.dotfiles/zsh sh
     chsh -s /bin/zsh
 
