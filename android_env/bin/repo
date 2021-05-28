@@ -32,6 +32,13 @@ import subprocess
 import sys
 
 
+# These should never be newer than the main.py version since this needs to be a
+# bit more flexible with older systems.  See that file for more details on the
+# versions we select.
+MIN_PYTHON_VERSION_SOFT = (3, 6)
+MIN_PYTHON_VERSION_HARD = (3, 5)
+
+
 # Keep basic logic in sync with repo_trace.py.
 class Trace(object):
   """Trace helper logic."""
@@ -70,8 +77,6 @@ def check_python_version():
   def reexec(prog):
     exec_command([prog] + sys.argv)
 
-  MIN_PYTHON_VERSION = (3, 6)
-
   ver = sys.version_info
   major = ver.major
   minor = ver.minor
@@ -80,19 +85,26 @@ def check_python_version():
   if (major, minor) < (2, 7):
     print('repo: error: Your Python version is too old. '
           'Please use Python {}.{} or newer instead.'.format(
-              *MIN_PYTHON_VERSION), file=sys.stderr)
+              *MIN_PYTHON_VERSION_SOFT), file=sys.stderr)
     sys.exit(1)
 
   # Try to re-exec the version specific Python 3 if needed.
-  if (major, minor) < MIN_PYTHON_VERSION:
+  if (major, minor) < MIN_PYTHON_VERSION_SOFT:
     # Python makes releases ~once a year, so try our min version +10 to help
     # bridge the gap.  This is the fallback anyways so perf isn't critical.
-    min_major, min_minor = MIN_PYTHON_VERSION
+    min_major, min_minor = MIN_PYTHON_VERSION_SOFT
     for inc in range(0, 10):
       reexec('python{}.{}'.format(min_major, min_minor + inc))
 
-    # Try the generic Python 3 wrapper, but only if it's new enough.  We don't
-    # want to go from (still supported) Python 2.7 to (unsupported) Python 3.5.
+    # Fallback to older versions if possible.
+    for inc in range(MIN_PYTHON_VERSION_SOFT[1] - MIN_PYTHON_VERSION_HARD[1], 0, -1):
+      # Don't downgrade, and don't reexec ourselves (which would infinite loop).
+      if (min_major, min_minor - inc) <= (major, minor):
+        break
+      reexec('python{}.{}'.format(min_major, min_minor - inc))
+
+    # Try the generic Python 3 wrapper, but only if it's new enough.  If it
+    # isn't, we want to just give up below and make the user resolve things.
     try:
       proc = subprocess.Popen(
           ['python3', '-c', 'import sys; '
@@ -103,18 +115,20 @@ def check_python_version():
     except (OSError, subprocess.CalledProcessError):
       python3_ver = None
 
-    # The python3 version looks like it's new enough, so give it a try.
-    if python3_ver and python3_ver >= MIN_PYTHON_VERSION:
+    # If the python3 version looks like it's new enough, give it a try.
+    if (python3_ver and python3_ver >= MIN_PYTHON_VERSION_HARD
+            and python3_ver != (major, minor)):
       reexec('python3')
 
     # We're still here, so diagnose things for the user.
     if major < 3:
-      print('repo: warning: Python 2 is no longer supported; '
-            'Please upgrade to Python {}.{}+.'.format(*MIN_PYTHON_VERSION),
+      print('repo: error: Python 2 is no longer supported; '
+            'Please upgrade to Python {}.{}+.'.format(*MIN_PYTHON_VERSION_HARD),
             file=sys.stderr)
-    else:
+      sys.exit(1)
+    elif (major, minor) < MIN_PYTHON_VERSION_HARD:
       print('repo: error: Python 3 version is too old; '
-            'Please use Python {}.{} or newer.'.format(*MIN_PYTHON_VERSION),
+            'Please use Python {}.{} or newer.'.format(*MIN_PYTHON_VERSION_HARD),
             file=sys.stderr)
       sys.exit(1)
 
@@ -131,9 +145,11 @@ if not REPO_URL:
 REPO_REV = os.environ.get('REPO_REV')
 if not REPO_REV:
   REPO_REV = 'stable'
+# URL to file bug reports for repo tool issues.
+BUG_URL = 'https://bugs.chromium.org/p/gerrit/issues/entry?template=Repo+tool+issue'
 
 # increment this whenever we make important changes to this script
-VERSION = (2, 8)
+VERSION = (2, 15)
 
 # increment this if the MAINTAINER_KEYS block is modified
 KEYRING_VERSION = (2, 3)
@@ -232,6 +248,7 @@ GITC_FS_ROOT_DIR = '/gitc/manifest-rw/'
 
 import collections
 import errno
+import json
 import optparse
 import re
 import shutil
@@ -255,11 +272,18 @@ gpg_dir = os.path.join(home_dot_repo, 'gnupg')
 def GetParser(gitc_init=False):
   """Setup the CLI parser."""
   if gitc_init:
-    usage = 'repo gitc-init -u url -c client [options]'
+    usage = 'repo gitc-init -c client [options] [-u] url'
   else:
-    usage = 'repo init -u url [options]'
+    usage = 'repo init [options] [-u] url'
 
   parser = optparse.OptionParser(usage=usage)
+  InitParser(parser, gitc_init=gitc_init)
+  return parser
+
+
+def InitParser(parser, gitc_init=False):
+  """Setup the CLI parser."""
+  # NB: Keep in sync with command.py:_CommonOptions().
 
   # Logging.
   group = parser.add_option_group('Logging options')
@@ -274,10 +298,24 @@ def GetParser(gitc_init=False):
   group = parser.add_option_group('Manifest options')
   group.add_option('-u', '--manifest-url',
                    help='manifest repository location', metavar='URL')
-  group.add_option('-b', '--manifest-branch',
-                   help='manifest branch or revision', metavar='REVISION')
-  group.add_option('-m', '--manifest-name',
+  group.add_option('-b', '--manifest-branch', metavar='REVISION',
+                   help='manifest branch or revision (use HEAD for default)')
+  group.add_option('-m', '--manifest-name', default='default.xml',
                    help='initial manifest file', metavar='NAME.xml')
+  group.add_option('-g', '--groups', default='default',
+                   help='restrict manifest projects to ones with specified '
+                        'group(s) [default|all|G1,G2,G3|G4,-G5,-G6]',
+                   metavar='GROUP')
+  group.add_option('-p', '--platform', default='auto',
+                   help='restrict manifest projects to ones with a specified '
+                        'platform group [auto|all|none|linux|darwin|...]',
+                   metavar='PLATFORM')
+  group.add_option('--submodules', action='store_true',
+                   help='sync any submodules associated with the manifest repo')
+
+  # Options that only affect manifest project, and not any of the projects
+  # specified in the manifest itself.
+  group = parser.add_option_group('Manifest (only) checkout options')
   cbr_opts = ['--current-branch']
   # The gitc-init subcommand allocates -c itself, but a lot of init users
   # want -c, so try to satisfy both as best we can.
@@ -286,9 +324,29 @@ def GetParser(gitc_init=False):
   group.add_option(*cbr_opts,
                    dest='current_branch_only', action='store_true',
                    help='fetch only current manifest branch from server')
+  group.add_option('--no-current-branch',
+                   dest='current_branch_only', action='store_false',
+                   help='fetch all manifest branches from server')
+  group.add_option('--tags',
+                   action='store_true',
+                   help='fetch tags in the manifest')
+  group.add_option('--no-tags',
+                   dest='tags', action='store_false',
+                   help="don't fetch tags in the manifest")
+
+  # These are fundamentally different ways of structuring the checkout.
+  group = parser.add_option_group('Checkout modes')
   group.add_option('--mirror', action='store_true',
                    help='create a replica of the remote repositories '
                         'rather than a client working directory')
+  group.add_option('--archive', action='store_true',
+                   help='checkout an archive instead of a git repository for '
+                        'each project. See git archive.')
+  group.add_option('--worktree', action='store_true',
+                   help='use git-worktree to manage projects')
+
+  # These are fundamentally different ways of structuring the checkout.
+  group = parser.add_option_group('Project checkout optimizations')
   group.add_option('--reference',
                    help='location of mirror directory', metavar='DIR')
   group.add_option('--dissociate', action='store_true',
@@ -299,32 +357,27 @@ def GetParser(gitc_init=False):
   group.add_option('--partial-clone', action='store_true',
                    help='perform partial clone (https://git-scm.com/'
                         'docs/gitrepository-layout#_code_partialclone_code)')
+  group.add_option('--no-partial-clone', action='store_false',
+                   help='disable use of partial clone (https://git-scm.com/'
+                        'docs/gitrepository-layout#_code_partialclone_code)')
+  group.add_option('--partial-clone-exclude', action='store',
+                   help='exclude the specified projects (a comma-delimited '
+                        'project names) from partial clone (https://git-scm.com'
+                        '/docs/gitrepository-layout#_code_partialclone_code)')
   group.add_option('--clone-filter', action='store', default='blob:none',
                    help='filter for use with --partial-clone '
                         '[default: %default]')
-  group.add_option('--worktree', action='store_true',
-                   help=optparse.SUPPRESS_HELP)
-  group.add_option('--archive', action='store_true',
-                   help='checkout an archive instead of a git repository for '
-                        'each project. See git archive.')
-  group.add_option('--submodules', action='store_true',
-                   help='sync any submodules associated with the manifest repo')
-  group.add_option('-g', '--groups', default='default',
-                   help='restrict manifest projects to ones with specified '
-                        'group(s) [default|all|G1,G2,G3|G4,-G5,-G6]',
-                   metavar='GROUP')
-  group.add_option('-p', '--platform', default='auto',
-                   help='restrict manifest projects to ones with a specified '
-                        'platform group [auto|all|none|linux|darwin|...]',
-                   metavar='PLATFORM')
+  group.add_option('--use-superproject', action='store_true', default=None,
+                   help='use the manifest superproject to sync projects')
+  group.add_option('--no-use-superproject', action='store_false',
+                   dest='use_superproject',
+                   help='disable use of manifest superprojects')
   group.add_option('--clone-bundle', action='store_true',
-                   help='enable use of /clone.bundle on HTTP/HTTPS (default if not --partial-clone)')
+                   help='enable use of /clone.bundle on HTTP/HTTPS '
+                        '(default if not --partial-clone)')
   group.add_option('--no-clone-bundle',
                    dest='clone_bundle', action='store_false',
                    help='disable use of /clone.bundle on HTTP/HTTPS (default if --partial-clone)')
-  group.add_option('--no-tags',
-                   dest='tags', default=True, action='store_false',
-                   help="don't fetch tags in the manifest")
 
   # Tool.
   group = parser.add_option_group('repo Version options')
@@ -439,9 +492,11 @@ def get_gitc_manifest_dir():
 def gitc_parse_clientdir(gitc_fs_path):
   """Parse a path in the GITC FS and return its client name.
 
-  @param gitc_fs_path: A subdirectory path within the GITC_FS_ROOT_DIR.
+  Args:
+    gitc_fs_path: A subdirectory path within the GITC_FS_ROOT_DIR.
 
-  @returns: The GITC client name
+  Returns:
+    The GITC client name.
   """
   if gitc_fs_path == GITC_FS_ROOT_DIR:
     return None
@@ -499,8 +554,11 @@ def _Init(args, gitc_init=False):
   parser = GetParser(gitc_init=gitc_init)
   opt, args = parser.parse_args(args)
   if args:
-    parser.print_usage()
-    sys.exit(1)
+    if not opt.manifest_url:
+      opt.manifest_url = args.pop(0)
+    if args:
+      parser.print_usage()
+      sys.exit(1)
   opt.quiet = opt.output_mode is False
   opt.verbose = opt.output_mode is True
 
@@ -801,11 +859,10 @@ def _DownloadBundle(url, cwd, quiet, verbose):
     try:
       r = urllib.request.urlopen(url)
     except urllib.error.HTTPError as e:
-      if e.code in [401, 403, 404, 501]:
-        return False
-      print('fatal: Cannot get %s' % url, file=sys.stderr)
-      print('fatal: HTTP error %s' % e.code, file=sys.stderr)
-      raise CloneFailure()
+      if e.code not in [400, 401, 403, 404, 501]:
+        print('warning: Cannot get %s' % url, file=sys.stderr)
+        print('warning: HTTP error %s' % e.code, file=sys.stderr)
+      return False
     except urllib.error.URLError as e:
       print('fatal: Cannot get %s' % url, file=sys.stderr)
       print('fatal: error %s' % e.reason, file=sys.stderr)
@@ -966,9 +1023,7 @@ def _FindRepo():
   repo = None
 
   olddir = None
-  while curdir != '/' \
-          and curdir != olddir \
-          and not repo:
+  while curdir != olddir and not repo:
     repo = os.path.join(curdir, repodir, REPO_MAIN)
     if not os.path.isfile(repo):
       repo = None
@@ -1021,6 +1076,90 @@ def _ParseArguments(args):
   return cmd, opt, arg
 
 
+class Requirements(object):
+  """Helper for checking repo's system requirements."""
+
+  REQUIREMENTS_NAME = 'requirements.json'
+
+  def __init__(self, requirements):
+    """Initialize.
+
+    Args:
+      requirements: A dictionary of settings.
+    """
+    self.requirements = requirements
+
+  @classmethod
+  def from_dir(cls, path):
+    return cls.from_file(os.path.join(path, cls.REQUIREMENTS_NAME))
+
+  @classmethod
+  def from_file(cls, path):
+    try:
+      with open(path, 'rb') as f:
+        data = f.read()
+    except EnvironmentError:
+      # NB: EnvironmentError is used for Python 2 & 3 compatibility.
+      # If we couldn't open the file, assume it's an old source tree.
+      return None
+
+    return cls.from_data(data)
+
+  @classmethod
+  def from_data(cls, data):
+    comment_line = re.compile(br'^ *#')
+    strip_data = b''.join(x for x in data.splitlines() if not comment_line.match(x))
+    try:
+      json_data = json.loads(strip_data)
+    except Exception:  # pylint: disable=broad-except
+      # If we couldn't parse it, assume it's incompatible.
+      return None
+
+    return cls(json_data)
+
+  def _get_soft_ver(self, pkg):
+    """Return the soft version for |pkg| if it exists."""
+    return self.requirements.get(pkg, {}).get('soft', ())
+
+  def _get_hard_ver(self, pkg):
+    """Return the hard version for |pkg| if it exists."""
+    return self.requirements.get(pkg, {}).get('hard', ())
+
+  @staticmethod
+  def _format_ver(ver):
+    """Return a dotted version from |ver|."""
+    return '.'.join(str(x) for x in ver)
+
+  def assert_ver(self, pkg, curr_ver):
+    """Verify |pkg|'s |curr_ver| is new enough."""
+    curr_ver = tuple(curr_ver)
+    soft_ver = tuple(self._get_soft_ver(pkg))
+    hard_ver = tuple(self._get_hard_ver(pkg))
+    if curr_ver < hard_ver:
+      print('repo: error: Your version of "%s" (%s) is unsupported; '
+            'Please upgrade to at least version %s to continue.' %
+            (pkg, self._format_ver(curr_ver), self._format_ver(soft_ver)),
+            file=sys.stderr)
+      sys.exit(1)
+
+    if curr_ver < soft_ver:
+      print('repo: warning: Your version of "%s" (%s) is no longer supported; '
+            'Please upgrade to at least version %s to avoid breakage.' %
+            (pkg, self._format_ver(curr_ver), self._format_ver(soft_ver)),
+            file=sys.stderr)
+
+  def assert_all(self):
+    """Assert all of the requirements are satisified."""
+    # See if we need a repo launcher upgrade first.
+    self.assert_ver('repo', VERSION)
+
+    # Check python before we try to import the repo code.
+    self.assert_ver('python', sys.version_info)
+
+    # Check git while we're at it.
+    self.assert_ver('git', ParseGitVersion())
+
+
 def _Usage():
   gitc_usage = ""
   if get_gitc_manifest_dir():
@@ -1039,6 +1178,7 @@ The most commonly used repo commands are:
 
 For access to the full online help, install repo ("repo init").
 """)
+  print('Bug reports:', BUG_URL)
   sys.exit(0)
 
 
@@ -1072,6 +1212,7 @@ def _Version():
     print('OS %s %s (%s)' % (uname.system, uname.release, uname.version))
     print('CPU %s (%s)' %
           (uname.machine, uname.processor if uname.processor else 'unknown'))
+  print('Bug reports:', BUG_URL)
   sys.exit(0)
 
 
@@ -1177,6 +1318,10 @@ def main(orig_args):
   if not repo_main:
     print("fatal: unable to find repo entry point", file=sys.stderr)
     sys.exit(1)
+
+  reqs = Requirements.from_dir(os.path.dirname(repo_main))
+  if reqs:
+    reqs.assert_all()
 
   ver_str = '.'.join(map(str, VERSION))
   me = [sys.executable, repo_main,
