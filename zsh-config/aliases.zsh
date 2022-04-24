@@ -8,7 +8,7 @@ else
     export PATH="$HOME/.dotfiles/android_env/bin/linux:$HOME/.dotfiles/android_env/android-platform-tools/linux:$PATH"
 fi
 
-export PATH="/opt/bin:$HOME/bin:$HOME/.dotfiles/android_env/bin:$PATH"
+export PATH="$HOME/.local/bin:/opt/bin:$HOME/bin:$HOME/.dotfiles/android_env/bin:$PATH"
 
 alias reposync='repo sync -j4 -c --no-tags --no-clone-bundle'
 alias findm="grep -rnws --include='*.[mb][kp]' 'LOCAL_MODULE\|LOCAL_PACKAGE_NAME\|name:'"
@@ -24,3 +24,4 @@ alias rlusb="sudo modprobe -r usbhid && sudo modprobe usbhid"
 # minicom
 #alias uartlog="sudo minicom -c on -C uart-log-$(date +%Y-%m-%d_%H:%M:%S).log"
 source $HOME/.dotfiles/minicom/myminicom.sh
+export REPO_URL="https://mirrors.tuna.tsinghua.edu.cn/git/git-repo"
