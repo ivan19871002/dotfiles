@@ -98,6 +98,7 @@
     ./install.py
 
     vim ~/.zshrc
+    theme: muse
     plugins=(
       git
       colored-man-pages
