@@ -4,6 +4,10 @@ if [[ `uname` == 'Darwin' ]]; then
     export PATH="$(brew --prefix openjdk)/bin:$(brew --prefix sqlite)/bin:$(brew --prefix grep)/bin:$HOME/.dotfiles/android_env/android-platform-tools/darwin:$HOME/.dotfiles/android_env/bin/darwin:$PATH"
     alias grep='grep --color=auto'
     ulimit -S -n 2048
+    alias pip=/usr/local/bin/pip3
+    alias python=/usr/local/bin/python3
+    alias wx="nohup /Applications/WeChat.app/Contents/MacOS/WeChat > /dev/null 2>&1 &"
+    export PATH="/usr/local/opt/openjdk/bin:$PATH"
 else
     export PATH="$HOME/.dotfiles/android_env/bin/linux:$HOME/.dotfiles/android_env/android-platform-tools/linux:$PATH"
 fi
