@@ -72,7 +72,7 @@
     ln -s ~/.dotfiles/terminator/config ~/.config/terminator/config
 
 ## Fonts
-    git clone git@github.com:powerline/fonts.git
+    git clone https://github.com/powerline/fonts.git
     cd fonts
     ./install.sh
 
@@ -93,7 +93,7 @@
 
     git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.dotfiles/zsh/custom/plugins/zsh-syntax-highlighting
     git clone https://github.com/zsh-users/zsh-autosuggestions ~/.dotfiles/zsh/custom/plugins/zsh-autosuggestions
-    git clone git://github.com/wting/autojump.git
+    git clone https://github.com/wting/autojump.git
     cd autojump
     ./install.py
 
@@ -105,7 +105,7 @@
       tmux
       catimg
       extract
-      audojump
+      autojump
       z
       command-not-found
       history-substring-search
